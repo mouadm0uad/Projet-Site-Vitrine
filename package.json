@@ -1,0 +1,12 @@
+{
+  "name": "refuge-le-second-souffle",
+  "version": "1.0.0",
+  "description": "Site vitrine du refuge Le Second Souffle, avec fiches d'animaux alimentees par TheCatAPI.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
