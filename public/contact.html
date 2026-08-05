@@ -3,9 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Équipe | Refuge Le Second Souffle</title>
-  <meta name="description" content="L'équipe du refuge Le Second Souffle : soins, comportement, familles d'accueil et bénévolat.">
+  <title>Contact | Refuge Le Second Souffle</title>
+  <meta name="description" content="Coordonnées et formulaire de contact du refuge Le Second Souffle, Montréal.">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ===== EN-TETE + NAVIGATION ===== -->
+  <header class="entete">
+    <div class="conteneur entete__contenu">
+
+      <a class="logo" href="index.html">
+        <img src="images/logo.svg" alt="Logo du refuge Le Second Souffle" width="48" height="48">
+        <span class="logo__texte">Le Second Souffle</span>
+      </a>
+
+      <button class="bouton-menu" id="boutonMenu" aria-expanded="false" aria-controls="menuPrincipal">
+        Menu
+      </button>
+
+      <nav class="navigation" id="menuPrincipal" aria-label="Navigation principale">
+        <ul class="navigation__liste">
+          <li><a class="navigation__lien" href="index.html">Accueil</a></li>
+          <li><a class="navigation__lien" href="adoption.html">Adoption</a></li>
+          <li><a class="navigation__lien" href="equipe.html">Équipe</a></li>
+          <li><a class="navigation__lien navigation__lien--actif" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== TITRE DE PAGE ===== -->
+    <section class="bandeau">
+      <div class="conteneur">
+        <p class="surtitre">On répond en 48 heures</p>
+        <h1>Contact</h1>
+        <p class="bandeau__texte">
+          Une question sur une adoption, une offre de bénévolat, ou un animal
+          trouvé dans votre ruelle : écrivez-nous.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 1 : FORMULAIRE + COORDONNEES ===== -->
+    <section class="section">
+      <div class="conteneur bloc-contact">
+
+        <!-- ---- Formulaire ---- -->
+        <div class="bloc-contact__formulaire">
+          <h2>Nous écrire</h2>
+
+          <form id="formulaireContact" novalidate>
+
+            <div class="champ">
+              <label for="nom">Nom complet</label>
+              <input type="text" id="nom" name="nom" autocomplete="name" required>
+            </div>
+
+            <div class="champ">
+              <label for="courriel">Courriel</label>
+              <input type="email" id="courriel" name="courriel" autocomplete="email" required>
+            </div>
+
+            <div class="champ">
+              <label for="sujet">Sujet</label>
+              <select id="sujet" name="sujet">
+                <option value="adoption">Question sur une adoption</option>
+                <option value="benevolat">Devenir bénévole</option>
+                <option value="famille">Devenir famille d'accueil</option>
+                <option value="trouve">Signaler un animal trouvé</option>
+                <option value="don">Faire un don</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="champ">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <div class="champ champ--case">
+              <input type="checkbox" id="infolettre" name="infolettre">
+              <label for="infolettre">Je souhaite recevoir l'infolettre mensuelle du refuge</label>
+            </div>
+
+            <button type="submit" class="bouton">Envoyer le message</button>
+
+            <!-- Zone remplie par le JavaScript après validation -->
+            <p class="message-retour" id="messageRetour" role="status"></p>
+
+          </form>
+        </div>
+
+        <!-- ---- Coordonnées ---- -->
+        <aside class="bloc-contact__infos">
+          <h2>Coordonnées</h2>
+
+          <h3>Adresse</h3>
+          <address>
+            Refuge Le Second Souffle<br>
+            3180, rue Rachel Est<br>
+            Montréal (Québec) H1W 1A2<br>
+            Métro Préfontaine, sortie sud
+          </address>
+
+          <h3>Téléphone et courriel</h3>
+          <p>
+            <a href="tel:+15145550188">514 555-0188</a><br>
+            <a href="mailto:bonjour@secondsouffle.ca">bonjour@secondsouffle.ca</a>
+          </p>
+
+          <h3>Urgence animal blessé</h3>
+          <p>
+            <a href="tel:+15145550199">514 555-0199</a><br>
+            Ligne ouverte 24 h sur 24
+          </p>
+
+          <h3>Heures d'ouverture</h3>
+          <ul class="liste-heures">
+            <li><span>Lundi</span><span>Fermé</span></li>
+            <li><span>Mardi</span><span>13 h – 17 h</span></li>
+            <li><span>Mercredi et vendredi</span><span>11 h – 18 h</span></li>
+            <li><span>Jeudi</span><span>11 h – 20 h</span></li>
+            <li><span>Samedi et dimanche</span><span>10 h – 17 h</span></li>
+          </ul>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2 : QUESTIONS FREQUENTES ===== -->
+    <section class="section section--claire">
+      <div class="conteneur">
+        <h2 class="section__titre">Questions fréquentes</h2>
+        <div class="grille-infos">
+          <article class="carte">
+            <h3>Puis-je adopter en appartement ?</h3>
+            <p>Oui. Le type de logement compte moins que le temps disponible et l'énergie de l'animal choisi.</p>
+          </article>
+          <article class="carte">
+            <h3>Reprenez-vous les animaux ?</h3>
+            <p>Toujours, et sans frais. Un animal adopté chez nous peut revenir à n'importe quel moment de sa vie.</p>
+          </article>
+          <article class="carte">
+            <h3>Acceptez-vous les dons matériels ?</h3>
+            <p>Oui : couvertures propres, litière non parfumée et croquettes non entamées sont les plus utiles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIED DE PAGE ===== -->
+  <footer class="pied-page">
+    <div class="conteneur pied-page__contenu">
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Le Second Souffle</h2>
+        <p>Refuge pour animaux sans euthanasie<br>3180, rue Rachel Est<br>Montréal (Québec) H1W 1A2</p>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Plan du site</h2>
+        <ul class="pied-page__liste">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="equipe.html">Équipe</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Nous joindre</h2>
+        <p>
+          <a href="tel:+15145550188">514 555-0188</a><br>
+          <a href="mailto:bonjour@secondsouffle.ca">bonjour@secondsouffle.ca</a>
+        </p>
+        <p>Mercredi au dimanche, 11 h à 18 h</p>
+      </div>
+
+    </div>
+    <p class="pied-page__bas">
+      © <span id="anneeCourante">2026</span> Refuge Le Second Souffle — Organisation fictive créée dans un cadre scolaire.
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

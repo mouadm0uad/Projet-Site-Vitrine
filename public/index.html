@@ -3,9 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Équipe | Refuge Le Second Souffle</title>
-  <meta name="description" content="L'équipe du refuge Le Second Souffle : soins, comportement, familles d'accueil et bénévolat.">
+  <title>Accueil | Refuge Le Second Souffle</title>
+  <meta name="description" content="Refuge pour animaux à Montréal : adoption, soins vétérinaires, familles d'accueil et bénévolat.">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ===== EN-TETE + NAVIGATION (identique sur les 4 pages) ===== -->
+  <header class="entete">
+    <div class="conteneur entete__contenu">
+
+      <a class="logo" href="index.html">
+        <img src="images/logo.svg" alt="Logo du refuge Le Second Souffle" width="48" height="48">
+        <span class="logo__texte">Le Second Souffle</span>
+      </a>
+
+      <!-- Bouton visible seulement sur mobile (géré en CSS + JS) -->
+      <button class="bouton-menu" id="boutonMenu" aria-expanded="false" aria-controls="menuPrincipal">
+        Menu
+      </button>
+
+      <nav class="navigation" id="menuPrincipal" aria-label="Navigation principale">
+        <ul class="navigation__liste">
+          <li><a class="navigation__lien navigation__lien--actif" href="index.html">Accueil</a></li>
+          <li><a class="navigation__lien" href="adoption.html">Adoption</a></li>
+          <li><a class="navigation__lien" href="equipe.html">Équipe</a></li>
+          <li><a class="navigation__lien" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== SECTION 1 : ACCROCHE ===== -->
+    <section class="banniere">
+      <div class="conteneur banniere__contenu">
+        <div class="banniere__texte">
+          <p class="surtitre">Refuge sans euthanasie — Montréal</p>
+          <h1>Chaque animal mérite une deuxième chance.</h1>
+          <p class="banniere__paragraphe">
+            Le Second Souffle accueille chiens et chats abandonnés, les soigne,
+            les socialise, et prend le temps qu'il faut pour leur trouver la
+            bonne famille. Aucun animal n'est euthanasié faute de place.
+          </p>
+          <div class="banniere__actions">
+            <a class="bouton" href="adoption.html">Voir l'adoption</a>
+            <a class="bouton bouton--secondaire" href="contact.html">Devenir bénévole</a>
+          </div>
+        </div>
+        <img class="banniere__image" src="images/hero-refuge.svg"
+             alt="Illustration d'un chien et d'un chat devant la maison du refuge" width="600" height="460">
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2 : NOS SERVICES ===== -->
+    <section class="section" id="services">
+      <div class="conteneur">
+        <h2 class="section__titre">Ce que nous faisons</h2>
+        <p class="section__intro">
+          Le refuge fonctionne grâce à quatre équipes qui se relaient sept jours
+          sur sept. Aucun animal ne repart sans avoir été examiné, stérilisé et
+          vacciné.
+        </p>
+
+        <!-- Grille CSS : 4 colonnes sur desktop, 1 seule sur téléphone -->
+        <div class="grille-cartes">
+
+          <article class="carte">
+            <img src="images/icone-adoption.svg" alt="" width="80" height="80">
+            <h3>Adoption</h3>
+            <p>Une rencontre, un entretien, puis une visite à domicile. Le processus prend deux semaines en moyenne.</p>
+          </article>
+
+          <article class="carte">
+            <img src="images/icone-soins.svg" alt="" width="80" height="80">
+            <h3>Soins vétérinaires</h3>
+            <p>Vaccination, stérilisation, micropuce et traitement des blessures, sur place dans notre clinique.</p>
+          </article>
+
+          <article class="carte">
+            <img src="images/icone-famille.svg" alt="" width="80" height="80">
+            <h3>Familles d'accueil</h3>
+            <p>Pour les chatons, les convalescents et les animaux anxieux, un foyer temporaire vaut mieux qu'un enclos.</p>
+          </article>
+
+          <article class="carte">
+            <img src="images/icone-benevolat.svg" alt="" width="80" height="80">
+            <h3>Bénévolat</h3>
+            <p>Promenades, socialisation, entretien des locaux : quarante bénévoles font tourner le refuge chaque semaine.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3 : NOS PENSIONNAIRES (via API TheCatAPI) ===== -->
+    <section class="section section--claire">
+      <div class="conteneur">
+        <h2 class="section__titre">Nos pensionnaires félins</h2>
+        <p class="section__intro">
+          Ces fiches sont chargées en direct depuis TheCatAPI. Chaque race y est
+          décrite avec son tempérament et son origine, pour vous aider à savoir
+          quel compagnon conviendrait à votre quotidien.
+        </p>
+
+        <!-- Rempli par js/pensionnaires.js via l'API /api/pensionnaires -->
+        <div class="grille-galerie" id="grillePensionnaires">
+          <p>Chargement des fiches…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4 : LE REFUGE EN CHIFFRES ===== -->
+    <section class="section section--fonce">
+      <div class="conteneur">
+        <h2 class="section__titre">Le refuge en quelques repères</h2>
+        <ul class="chiffres">
+          <li class="chiffres__item">
+            <strong>2014</strong>
+            <span>Ouverture, dans une ancienne quincaillerie</span>
+          </li>
+          <li class="chiffres__item">
+            <strong>612</strong>
+            <span>Adoptions conclues l'an dernier</span>
+          </li>
+          <li class="chiffres__item">
+            <strong>40</strong>
+            <span>Bénévoles actifs chaque semaine</span>
+          </li>
+          <li class="chiffres__item">
+            <strong>0</strong>
+            <span>Euthanasie par manque de place</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5 : APPEL A L'ACTION ===== -->
+    <section class="section appel">
+      <div class="conteneur appel__contenu">
+        <h2>Venir rencontrer les animaux</h2>
+        <p>
+          Le refuge est ouvert aux visites libres du mercredi au dimanche.
+          Aucun rendez-vous nécessaire : passez, prenez le temps, repartez y penser.
+        </p>
+        <a class="bouton" href="contact.html">Nous écrire</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIED DE PAGE (identique sur les 4 pages) ===== -->
+  <footer class="pied-page">
+    <div class="conteneur pied-page__contenu">
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Le Second Souffle</h2>
+        <p>Refuge pour animaux sans euthanasie<br>3180, rue Rachel Est<br>Montréal (Québec) H1W 1A2</p>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Plan du site</h2>
+        <ul class="pied-page__liste">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="equipe.html">Équipe</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Nous joindre</h2>
+        <p>
+          <a href="tel:+15145550188">514 555-0188</a><br>
+          <a href="mailto:bonjour@secondsouffle.ca">bonjour@secondsouffle.ca</a>
+        </p>
+        <p>Mercredi au dimanche, 11 h à 18 h</p>
+      </div>
+
+    </div>
+    <p class="pied-page__bas">
+      © <span id="anneeCourante">2026</span> Refuge Le Second Souffle
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/pensionnaires.js"></script>
+</body>
+</html>

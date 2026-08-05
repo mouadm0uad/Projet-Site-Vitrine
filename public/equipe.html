@@ -9,3 +9,173 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ===== EN-TETE + NAVIGATION ===== -->
+  <header class="entete">
+    <div class="conteneur entete__contenu">
+
+      <a class="logo" href="index.html">
+        <img src="images/logo.svg" alt="Logo du refuge Le Second Souffle" width="48" height="48">
+        <span class="logo__texte">Le Second Souffle</span>
+      </a>
+
+      <button class="bouton-menu" id="boutonMenu" aria-expanded="false" aria-controls="menuPrincipal">
+        Menu
+      </button>
+
+      <nav class="navigation" id="menuPrincipal" aria-label="Navigation principale">
+        <ul class="navigation__liste">
+          <li><a class="navigation__lien" href="index.html">Accueil</a></li>
+          <li><a class="navigation__lien" href="adoption.html">Adoption</a></li>
+          <li><a class="navigation__lien navigation__lien--actif" href="equipe.html">Équipe</a></li>
+          <li><a class="navigation__lien" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== TITRE DE PAGE ===== -->
+    <section class="bandeau">
+      <div class="conteneur">
+        <p class="surtitre">Qui s'occupe des animaux</p>
+        <h1>L'équipe</h1>
+        <p class="bandeau__texte">
+          Sept personnes salariées et une quarantaine de bénévoles. La plupart
+          sont arrivées ici en venant adopter, puis ne sont jamais reparties.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 1 : L'EQUIPE ===== -->
+    <section class="section">
+      <div class="conteneur">
+        <h2 class="section__titre">L'équipe permanente</h2>
+
+        <div class="grille-equipe">
+
+          <article class="carte-membre">
+            <img src="images/portrait-1.svg" alt="Portrait illustré de Sophie Marchand" width="200" height="200">
+            <h3>Sophie Marchand</h3>
+            <p class="carte-membre__role">Direction · Coordination des adoptions</p>
+            <p>
+              Sophie a fondé le refuge en 2014 après dix ans en clinique
+              vétérinaire. C'est elle qui mène la plupart des entretiens
+              d'adoption.
+            </p>
+          </article>
+
+          <article class="carte-membre">
+            <img src="images/portrait-2.svg" alt="Portrait illustré de Karim Belhadj" width="200" height="200">
+            <h3>Karim Belhadj</h3>
+            <p class="carte-membre__role">Technicien en santé animale</p>
+            <p>
+              Karim gère la clinique interne : vaccins, stérilisations, suivi des
+              convalescents. Il tient aussi les dossiers médicaux de chaque animal.
+            </p>
+          </article>
+
+          <article class="carte-membre">
+            <img src="images/portrait-3.svg" alt="Portrait illustré d'Élise Tremblay" width="200" height="200">
+            <h3>Élise Tremblay</h3>
+            <p class="carte-membre__role">Intervenante en comportement animal</p>
+            <p>
+              Élise travaille avec les chiens anxieux ou réactifs. Son objectif :
+              qu'aucun animal ne soit jugé inadoptable avant d'avoir eu sa chance.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2 : NOTRE APPROCHE ===== -->
+    <section class="section section--claire">
+      <div class="conteneur">
+        <h2 class="section__titre">Notre approche</h2>
+        <div class="deux-colonnes">
+          <div>
+            <h3>Sans euthanasie de convenance</h3>
+            <p>
+              Nous n'euthanasions jamais un animal par manque de place ou parce
+              que son adoption traîne. La seule exception reste la souffrance
+              incurable, décidée avec un vétérinaire externe.
+            </p>
+            <h3>Le bon match, pas le match rapide</h3>
+            <p>
+              Refuser une adoption est parfois le meilleur service à rendre aux
+              deux parties. Un chien de berger dans un studio sans balcon finit
+              par revenir, plus abîmé qu'avant.
+            </p>
+          </div>
+          <div>
+            <h3>Les familles d'accueil d'abord</h3>
+            <p>
+              Chatons, animaux âgés et convalescents partent en famille d'accueil
+              plutôt que de rester en enclos. Un salon vaut mieux qu'une cage,
+              même très propre.
+            </p>
+            <h3>Transparence sur les coûts</h3>
+            <p>
+              Les frais d'adoption couvrent environ 60 % des soins réellement
+              engagés. Le reste vient des dons et de la vente de nos calendriers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3 : BENEVOLAT ===== -->
+    <section class="section appel">
+      <div class="conteneur appel__contenu">
+        <h2>Devenir bénévole ou famille d'accueil</h2>
+        <p>
+          Nous cherchons en permanence des promeneurs de chiens le matin et des
+          familles d'accueil pour les portées de chatons du printemps. Aucune
+          expérience requise, formation d'une demi-journée offerte.
+        </p>
+        <a class="bouton" href="contact.html">Écrire au refuge</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIED DE PAGE ===== -->
+  <footer class="pied-page">
+    <div class="conteneur pied-page__contenu">
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Le Second Souffle</h2>
+        <p>Refuge pour animaux sans euthanasie<br>3180, rue Rachel Est<br>Montréal (Québec) H1W 1A2</p>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Plan du site</h2>
+        <ul class="pied-page__liste">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="equipe.html">Équipe</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Nous joindre</h2>
+        <p>
+          <a href="tel:+15145550188">514 555-0188</a><br>
+          <a href="mailto:bonjour@secondsouffle.ca">bonjour@secondsouffle.ca</a>
+        </p>
+        <p>Mercredi au dimanche, 11 h à 18 h</p>
+      </div>
+
+    </div>
+    <p class="pied-page__bas">
+      © <span id="anneeCourante">2026</span> Refuge Le Second Souffle — Organisation fictive créée dans un cadre scolaire.
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

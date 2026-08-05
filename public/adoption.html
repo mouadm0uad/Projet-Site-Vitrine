@@ -3,9 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Équipe | Refuge Le Second Souffle</title>
-  <meta name="description" content="L'équipe du refuge Le Second Souffle : soins, comportement, familles d'accueil et bénévolat.">
+  <title>Adoption | Refuge Le Second Souffle</title>
+  <meta name="description" content="Processus d'adoption, frais et horaire des visites au refuge Le Second Souffle.">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ===== EN-TETE + NAVIGATION ===== -->
+  <header class="entete">
+    <div class="conteneur entete__contenu">
+
+      <a class="logo" href="index.html">
+        <img src="images/logo.svg" alt="Logo du refuge Le Second Souffle" width="48" height="48">
+        <span class="logo__texte">Le Second Souffle</span>
+      </a>
+
+      <button class="bouton-menu" id="boutonMenu" aria-expanded="false" aria-controls="menuPrincipal">
+        Menu
+      </button>
+
+      <nav class="navigation" id="menuPrincipal" aria-label="Navigation principale">
+        <ul class="navigation__liste">
+          <li><a class="navigation__lien" href="index.html">Accueil</a></li>
+          <li><a class="navigation__lien navigation__lien--actif" href="adoption.html">Adoption</a></li>
+          <li><a class="navigation__lien" href="equipe.html">Équipe</a></li>
+          <li><a class="navigation__lien" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== TITRE DE PAGE ===== -->
+    <section class="bandeau">
+      <div class="conteneur">
+        <p class="surtitre">Comment ça se passe</p>
+        <h1>Adopter au refuge</h1>
+        <p class="bandeau__texte">
+          Adopter n'est pas un achat impulsif. Notre processus prend environ deux
+          semaines, parce qu'un retour au refuge est bien plus dur pour l'animal
+          qu'une attente un peu longue.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 1 : LES ETAPES ===== -->
+    <section class="section">
+      <div class="conteneur">
+        <h2 class="section__titre">Les quatre étapes</h2>
+
+        <div class="grille-cours">
+
+          <article class="carte-cours">
+            <p class="carte-cours__etape">Étape 1</p>
+            <h3>La visite libre</h3>
+            <p>
+              Passez au refuge sans rendez-vous, du mercredi au dimanche. Prenez
+              le temps de rencontrer plusieurs animaux avant de vous décider :
+              le coup de foudre à la première cage est rarement le bon choix.
+            </p>
+            <p class="carte-cours__delai">Aucun engagement</p>
+          </article>
+
+          <article class="carte-cours">
+            <p class="carte-cours__etape">Étape 2</p>
+            <h3>L'entretien</h3>
+            <p>
+              Une conversation d'une heure sur votre logement, votre horaire et
+              vos animaux actuels. Ce n'est pas un examen : c'est pour vérifier
+              que l'animal choisi correspond réellement à votre quotidien.
+            </p>
+            <p class="carte-cours__delai">Environ 1 heure</p>
+          </article>
+
+          <article class="carte-cours">
+            <p class="carte-cours__etape">Étape 3</p>
+            <h3>La visite à domicile</h3>
+            <p>
+              Un membre de l'équipe passe chez vous vérifier les points de
+              sécurité de base : balcons, produits ménagers, plantes toxiques.
+              La visite prend vingt minutes et n'est jamais un jugement.
+            </p>
+            <p class="carte-cours__delai">Sous 7 jours</p>
+          </article>
+
+          <article class="carte-cours">
+            <p class="carte-cours__etape">Étape 4</p>
+            <h3>Le départ</h3>
+            <p>
+              Signature du contrat, remise du carnet de santé et des premières
+              croquettes. Nous rappelons systématiquement après deux semaines,
+              puis après trois mois.
+            </p>
+            <p class="carte-cours__delai">Suivi inclus</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2 : HORAIRE DES VISITES ===== -->
+    <section class="section section--claire">
+      <div class="conteneur">
+        <h2 class="section__titre">Horaire des visites</h2>
+        <p class="section__intro">
+          Les entretiens d'adoption se font en semaine, sur rendez-vous. Les
+          visites libres n'en demandent aucun.
+        </p>
+
+        <div class="tableau-enveloppe">
+          <table class="horaire">
+            <caption>Horaire d'ouverture du refuge</caption>
+            <thead>
+              <tr>
+                <th scope="col">Jour</th>
+                <th scope="col">Heure</th>
+                <th scope="col">Type d'accueil</th>
+                <th scope="col">Rendez-vous</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Lundi</th>
+                <td>Fermé au public</td>
+                <td>Soins et nettoyage</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <th scope="row">Mardi</th>
+                <td>13 h 00 – 17 h 00</td>
+                <td>Entretiens d'adoption</td>
+                <td>Requis</td>
+              </tr>
+              <tr>
+                <th scope="row">Mercredi</th>
+                <td>11 h 00 – 18 h 00</td>
+                <td>Visite libre</td>
+                <td>Non requis</td>
+              </tr>
+              <tr>
+                <th scope="row">Jeudi</th>
+                <td>11 h 00 – 20 h 00</td>
+                <td>Visite libre et entretiens</td>
+                <td>Selon le cas</td>
+              </tr>
+              <tr>
+                <th scope="row">Vendredi</th>
+                <td>11 h 00 – 18 h 00</td>
+                <td>Visite libre</td>
+                <td>Non requis</td>
+              </tr>
+              <tr>
+                <th scope="row">Samedi et dimanche</th>
+                <td>10 h 00 – 17 h 00</td>
+                <td>Visite libre</td>
+                <td>Non requis</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3 : FRAIS ET INFOS ===== -->
+    <section class="section">
+      <div class="conteneur">
+        <h2 class="section__titre">Frais d'adoption</h2>
+        <div class="grille-infos">
+          <article class="carte">
+            <h3>Chat adulte — 175 $</h3>
+            <p>Comprend la stérilisation, la vaccination, le micropuçage et le premier traitement antiparasitaire.</p>
+          </article>
+          <article class="carte">
+            <h3>Chien adulte — 325 $</h3>
+            <p>Mêmes soins, plus une évaluation comportementale et deux séances d'éducation avec notre intervenante.</p>
+          </article>
+          <article class="carte">
+            <h3>Animal senior — 60 $</h3>
+            <p>Tarif réduit pour les animaux de plus de huit ans, dont les soins vétérinaires courants restent couverts un an.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIED DE PAGE ===== -->
+  <footer class="pied-page">
+    <div class="conteneur pied-page__contenu">
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Le Second Souffle</h2>
+        <p>Refuge pour animaux sans euthanasie<br>3180, rue Rachel Est<br>Montréal (Québec) H1W 1A2</p>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Plan du site</h2>
+        <ul class="pied-page__liste">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="equipe.html">Équipe</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="pied-page__bloc">
+        <h2 class="pied-page__titre">Nous joindre</h2>
+        <p>
+          <a href="tel:+15145550188">514 555-0188</a><br>
+          <a href="mailto:bonjour@secondsouffle.ca">bonjour@secondsouffle.ca</a>
+        </p>
+        <p>Mercredi au dimanche, 11 h à 18 h</p>
+      </div>
+
+    </div>
+    <p class="pied-page__bas">
+      © <span id="anneeCourante">2026</span> Refuge Le Second Souffle — Organisation fictive créée dans un cadre scolaire.
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
