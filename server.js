@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 
 const app = express();
@@ -5,6 +6,7 @@ const PORT = 3000;
 
 // Nombre de fiches à afficher dans la galerie
 const NOMBRE_FICHES = 8;
+const CAT_API_KEY = process.env.CAT_API_KEY;
 
 // Sert tous les fichiers du dossier "public" (html, css, js, images)
 app.use(express.static("public"));
@@ -16,7 +18,9 @@ app.get("/api/pensionnaires", async (req, res) => {
   const url = `https://api.thecatapi.com/v1/breeds?limit=${NOMBRE_FICHES}`;
 
   try {
-    const reponse = await fetch(url);
+    const reponse = await fetch(url, {
+  headers: { "x-api-key": CAT_API_KEY }
+});
 
     if (!reponse.ok) {
       throw new Error(`TheCatAPI a répondu avec le statut ${reponse.status}`);
@@ -58,5 +62,8 @@ app.get("/api/pensionnaires", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Serveur démarré : http://localhost:${PORT}`);
-});
++   if (!CAT_API_KEY) {
++     console.warn("⚠️  Aucune clé TheCatAPI trouvée dans .env — copie .env.example vers .env et colle ta clé.");
++   }
+    console.log(`Serveur démarré : http://localhost:${PORT}`);
+  });
