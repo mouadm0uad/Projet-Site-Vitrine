@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" role="img" aria-label="Icone benevolat">
+  <circle cx="40" cy="40" r="38" fill="#F6F1E7" stroke="#12291C" stroke-width="4"/>
+  <circle cx="40" cy="30" r="11" fill="#E8B04B" stroke="#12291C" stroke-width="4"/><path d="M20 62 C20 46, 60 46, 60 62 Z" fill="#E8B04B" stroke="#12291C" stroke-width="4" stroke-linejoin="round"/>
+</svg>

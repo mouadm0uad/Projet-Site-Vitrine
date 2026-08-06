@@ -1,0 +1,803 @@
+/* ---------------------------------------------------------
+   1. VARIABLES DE COULEURS ET POLICES
+   --------------------------------------------------------- */
+:root {
+  --foret: #1F3D2B;
+  --foret-clair: #2C5940;
+  --ocre: #E8B04B;
+  --brique: #D9705F;
+  --sauge: #8FA8A0;
+  --sable: #F6F1E7;
+  --sable-fonce: #EAE1D0;
+  --encre: #12291C;
+
+  --police-titre: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+  --police-texte: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --largeur-max: 1100px;
+  --rayon: 14px;
+  --ombre: 0 4px 0 var(--encre);
+}
+
+
+/* ---------------------------------------------------------
+   2. STYLES DE BASE
+   --------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--sable);
+  color: var(--encre);
+  font-family: var(--police-texte);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--police-titre);
+  color: var(--foret);
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.6rem;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 1.9rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+a {
+  color: var(--foret);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Le conteneur centre le contenu et garde des marges sur les côtés */
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Petit texte en majuscules au-dessus des grands titres */
+.surtitre {
+  font-family: var(--police-titre);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--brique);
+  margin: 0 0 10px 0;
+}
+
+/* Boutons */
+.bouton {
+  display: inline-block;
+  background-color: var(--ocre);
+  color: var(--encre);
+  font-family: var(--police-titre);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 13px 26px;
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.bouton:hover {
+  background-color: var(--brique);
+  color: var(--sable);
+}
+
+.bouton--secondaire {
+  background-color: var(--sable);
+}
+
+/* Contour visible au clavier (accessibilité) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--brique);
+  outline-offset: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   3. EN-TÊTE ET NAVIGATION  (flexbox)
+   --------------------------------------------------------- */
+.entete {
+  background-color: var(--foret);
+  border-bottom: 5px solid var(--ocre);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.entete__contenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo__texte {
+  font-family: var(--police-titre);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--sable);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navigation__liste {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__lien {
+  display: block;
+  color: var(--sable);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.navigation__lien:hover {
+  background-color: var(--foret-clair);
+  color: var(--ocre);
+}
+
+/* Page courante */
+.navigation__lien--actif {
+  background-color: var(--ocre);
+  color: var(--encre);
+}
+
+/* Bouton du menu : caché sur desktop, affiché en mobile */
+.bouton-menu {
+  display: none;
+  background-color: var(--ocre);
+  color: var(--encre);
+  font-family: var(--police-titre);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border: 3px solid var(--sable);
+  border-radius: var(--rayon);
+  cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------
+   4. SECTIONS COMMUNES
+   --------------------------------------------------------- */
+.section {
+  padding: 70px 0;
+}
+
+.section--claire {
+  background-color: var(--sable-fonce);
+}
+
+.section--fonce {
+  background-color: var(--foret);
+}
+
+.section--fonce h2 {
+  color: var(--sable);
+}
+
+.section__titre {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section__intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 40px auto;
+}
+
+/* Bandeau de titre des pages internes */
+.bandeau {
+  background-color: var(--sable-fonce);
+  border-bottom: 3px solid var(--foret);
+  padding: 60px 0;
+}
+
+.bandeau__texte {
+  max-width: 620px;
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   5. PAGE ACCUEIL
+   --------------------------------------------------------- */
+.banniere {
+  background-color: var(--foret-clair);
+  padding: 60px 0;
+}
+
+/* Deux colonnes côte à côte en flexbox */
+.banniere__contenu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.banniere__texte {
+  flex: 1;
+}
+
+.banniere__texte h1 {
+  color: var(--sable);
+}
+
+.banniere__paragraphe {
+  color: var(--sable);
+  max-width: 480px;
+}
+
+.banniere__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.banniere__image {
+  flex: 1;
+  max-width: 480px;
+}
+
+/* Grille des services : 4 colonnes */
+.grille-cartes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.carte {
+  background-color: var(--sable);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 26px 20px;
+  text-align: center;
+}
+
+.carte h3 {
+  margin-bottom: 8px;
+}
+
+.carte p {
+  margin-bottom: 0;
+}
+
+/* Chiffres clés */
+.chiffres {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  list-style: none;
+  margin: 40px 0 0 0;
+  padding: 0;
+}
+
+.chiffres__item {
+  text-align: center;
+  color: var(--sable);
+  border-top: 4px solid var(--ocre);
+  padding-top: 16px;
+}
+
+.chiffres__item strong {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: 2.6rem;
+  color: var(--ocre);
+  line-height: 1.1;
+}
+
+.chiffres__item span {
+  font-size: 0.95rem;
+}
+
+/* Bloc d'appel à l'action */
+.appel__contenu {
+  background-color: var(--ocre);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  text-align: center;
+  padding: 45px 30px;
+}
+
+.appel__contenu p {
+  max-width: 560px;
+  margin: 0 auto 26px auto;
+}
+
+.appel__contenu .bouton {
+  background-color: var(--sable);
+}
+
+
+/* ---------------------------------------------------------
+   5.5 FICHES DES PENSIONNAIRES
+        (remplies par l'API via js/pensionnaires.js)
+   --------------------------------------------------------- */
+.grille-galerie {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.carte-animal {
+  background-color: var(--sable);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.carte-animal img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--encre);
+}
+
+/* Bloc affiché quand l'API ne fournit pas de photo */
+.carte-animal__sans-photo {
+  height: 170px;
+  background-color: var(--sauge);
+  border-bottom: 3px solid var(--encre);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--police-titre);
+  font-weight: bold;
+  color: var(--encre);
+}
+
+.carte-animal__contenu {
+  padding: 18px 20px 22px 20px;
+}
+
+.carte-animal h3 {
+  margin-bottom: 4px;
+}
+
+.carte-animal__meta {
+  font-size: 0.85rem;
+  color: var(--foret-clair);
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+.carte-animal__temperament {
+  font-size: 0.9rem;
+  color: var(--brique);
+  font-style: italic;
+  margin: 0 0 10px 0;
+}
+
+.carte-animal p:last-child {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+
+/* ---------------------------------------------------------
+   6. PAGE ADOPTION
+   --------------------------------------------------------- */
+.grille-cours {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.carte-cours {
+  background-color: var(--sable-fonce);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 26px;
+}
+
+.section--claire .carte-cours,
+.section--claire .carte {
+  background-color: var(--sable);
+}
+
+/* Les étapes sont numérotées parce que l'ordre compte vraiment ici */
+.carte-cours__etape {
+  font-family: var(--police-titre);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: var(--brique);
+  margin: 0 0 6px 0;
+}
+
+.carte-cours__delai {
+  font-family: var(--police-titre);
+  font-weight: bold;
+  color: var(--foret-clair);
+  margin-bottom: 0;
+}
+
+/* Le tableau peut défiler horizontalement sur petit écran */
+.tableau-enveloppe {
+  overflow-x: auto;
+}
+
+.horaire {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--sable);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  overflow: hidden;
+  min-width: 560px;
+}
+
+.horaire caption {
+  caption-side: bottom;
+  font-size: 0.9rem;
+  padding-top: 12px;
+  color: var(--foret);
+}
+
+.horaire th,
+.horaire td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--sable-fonce);
+}
+
+.horaire thead th {
+  background-color: var(--foret);
+  color: var(--sable);
+  font-family: var(--police-titre);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.horaire tbody th {
+  color: var(--brique);
+}
+
+.horaire tbody tr:hover {
+  background-color: var(--sable-fonce);
+}
+
+.grille-infos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.grille-infos .carte {
+  text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   7. PAGE ÉQUIPE
+   --------------------------------------------------------- */
+.grille-equipe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.carte-membre {
+  background-color: var(--sable-fonce);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 24px;
+  text-align: center;
+}
+
+.carte-membre img {
+  border-radius: 50%;
+  border: 3px solid var(--encre);
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.carte-membre h3 {
+  margin-bottom: 4px;
+}
+
+.carte-membre__role {
+  font-weight: bold;
+  color: var(--foret-clair);
+  margin: 0 0 12px 0;
+}
+
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.deux-colonnes h3 {
+  border-left: 5px solid var(--ocre);
+  padding-left: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   8. PAGE CONTACT
+   --------------------------------------------------------- */
+.bloc-contact {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.champ {
+  margin-bottom: 20px;
+}
+
+.champ label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.champ input[type="text"],
+.champ input[type="email"],
+.champ select,
+.champ textarea {
+  width: 100%;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+  padding: 11px 13px;
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  background-color: var(--sable);
+  color: var(--encre);
+}
+
+.champ textarea {
+  resize: vertical;
+}
+
+/* Case à cocher : la case et son texte sur une même ligne */
+.champ--case {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.champ--case label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+/* Champ en erreur, classe ajoutée par le JavaScript */
+.champ-erreur {
+  border-color: var(--brique) !important;
+  background-color: #fbeceb !important;
+}
+
+.message-retour {
+  margin-top: 18px;
+  font-weight: bold;
+  min-height: 1.2em;
+}
+
+.message-retour--succes {
+  color: var(--foret-clair);
+}
+
+.message-retour--erreur {
+  color: var(--brique);
+}
+
+.bloc-contact__infos {
+  background-color: var(--sable-fonce);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 26px;
+}
+
+.bloc-contact__infos h3 {
+  margin-top: 22px;
+  margin-bottom: 6px;
+}
+
+.bloc-contact__infos address {
+  font-style: normal;
+}
+
+.liste-heures {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.liste-heures li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--foret);
+}
+
+
+/* ---------------------------------------------------------
+   9. PIED DE PAGE
+   --------------------------------------------------------- */
+.pied-page {
+  background-color: var(--foret);
+  color: var(--sable);
+  padding-top: 50px;
+}
+
+.pied-page__contenu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding-bottom: 34px;
+}
+
+.pied-page__titre {
+  font-size: 1.1rem;
+  color: var(--ocre);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.pied-page a {
+  color: var(--sable);
+}
+
+.pied-page a:hover {
+  color: var(--ocre);
+}
+
+.pied-page__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pied-page__liste li {
+  padding: 3px 0;
+}
+
+.pied-page__bas {
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 18px 20px;
+  border-top: 1px solid var(--foret-clair);
+}
+
+
+/* =========================================================
+   10. VERSION TÉLÉPHONE  (une seule media query)
+   ========================================================= */
+@media screen and (max-width: 768px) {
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .section {
+    padding: 45px 0;
+  }
+
+  /* Le bouton apparaît et le menu se replie sous l'en-tête */
+  .bouton-menu {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    width: 100%;
+    padding-top: 12px;
+  }
+
+  /* Classe ajoutée par le JavaScript au clic sur « Menu » */
+  .navigation--ouverte {
+    display: block;
+  }
+
+  .navigation__liste {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .navigation__lien {
+    border-radius: var(--rayon);
+    padding: 12px 14px;
+  }
+
+  /* Tout passe sur une seule colonne */
+  .banniere__contenu {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .banniere__paragraphe {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .banniere__actions {
+    justify-content: center;
+  }
+
+  .grille-cartes,
+  .grille-cours,
+  .grille-infos,
+  .grille-equipe,
+  .grille-galerie,
+  .deux-colonnes,
+  .bloc-contact,
+  .pied-page__contenu {
+    grid-template-columns: 1fr;
+  }
+
+  .chiffres {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pied-page__contenu {
+    text-align: center;
+  }
+
+}
