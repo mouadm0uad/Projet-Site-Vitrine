@@ -19,8 +19,8 @@ app.get("/api/pensionnaires", async (req, res) => {
 
   try {
     const reponse = await fetch(url, {
-  headers: { "x-api-key": CAT_API_KEY }
-});
+      headers: { "x-api-key": CAT_API_KEY }
+    });
 
     if (!reponse.ok) {
       throw new Error(`TheCatAPI a répondu avec le statut ${reponse.status}`);
@@ -62,8 +62,8 @@ app.get("/api/pensionnaires", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-+   if (!CAT_API_KEY) {
-+     console.warn("⚠️  Aucune clé TheCatAPI trouvée dans .env — copie .env.example vers .env et colle ta clé.");
-+   }
-    console.log(`Serveur démarré : http://localhost:${PORT}`);
-  });
+  if (!CAT_API_KEY) {
+    console.warn("  Aucune clé TheCatAPI trouvée dans .env — copie .env.example vers .env et colle ta clé.");
+  }
+  console.log(`Serveur démarré : http://localhost:${PORT}`);
+});
