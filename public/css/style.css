@@ -425,6 +425,69 @@ textarea:focus-visible {
 
 
 /* ---------------------------------------------------------
+   5b. GALERIE DEFILANTE DES PENSIONNAIRES
+   --------------------------------------------------------- */
+/* La liste des races est longue : on l'enferme dans une zone
+   qui défile plutôt que de laisser la page s'étirer. */
+.galerie-defilante {
+  max-height: 620px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px;
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  background-color: var(--sable-fonce);
+
+  /* Barre de défilement aux couleurs du refuge (Firefox) */
+  scrollbar-width: thin;
+  scrollbar-color: var(--ocre) var(--sable-fonce);
+}
+
+.section--claire .galerie-defilante {
+  background-color: var(--sable);
+}
+
+/* Même barre de défilement pour Chrome, Edge et Safari */
+.galerie-defilante::-webkit-scrollbar {
+  width: 12px;
+}
+
+.galerie-defilante::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.galerie-defilante::-webkit-scrollbar-thumb {
+  background-color: var(--ocre);
+  border: 2px solid var(--encre);
+  border-radius: 10px;
+}
+
+.galerie-defilante::-webkit-scrollbar-thumb:hover {
+  background-color: var(--brique);
+}
+
+/* Bouton « Afficher plus » et compteur, sous la zone défilante */
+.galerie-actions {
+  margin-top: 24px;
+  text-align: center;
+}
+
+/* .bouton force display:inline-block : sans cette règle, l'attribut
+   « hidden » posé par le JavaScript ne cacherait pas le bouton. */
+.bouton[hidden] {
+  display: none;
+}
+
+.galerie-compteur {
+  margin: 0 0 14px 0;
+  font-family: var(--police-titre);
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--foret-clair);
+}
+
+
+/* ---------------------------------------------------------
    6. PAGE ADOPTION
    --------------------------------------------------------- */
 .grille-cours {
@@ -792,6 +855,12 @@ textarea:focus-visible {
 
   .chiffres {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Zone de défilement plus courte sur petit écran */
+  .galerie-defilante {
+    max-height: 460px;
+    padding: 14px;
   }
 
   .pied-page__contenu {

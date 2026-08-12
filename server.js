@@ -4,8 +4,8 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-// Nombre de fiches à afficher dans la galerie
-const NOMBRE_FICHES = 8;
+
+const NOMBRE_FICHES = 100;
 const CAT_API_KEY = process.env.CAT_API_KEY;
 
 // Sert tous les fichiers du dossier "public" (html, css, js, images)

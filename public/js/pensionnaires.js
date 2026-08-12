@@ -1,6 +1,17 @@
-function displayPensionnaireCards(pensionnaires, containerSelector) {
+// Nombre de fiches ajoutées à chaque clic sur « Afficher plus de races »
+const CARTES_PAR_LOT = 8;
+
+// Toutes les fiches reçues de l'API, gardées en mémoire une seule fois
+let toutesLesFiches = [];
+
+// Combien de fiches sont actuellement visibles dans la galerie
+let nombreAffiche = 0;
+
+
+function displayPensionnaireCards(pensionnaires, containerSelector, ajouter) {
 
   // containerSelector : le sélecteur CSS du conteneur où placer les cartes
+  // ajouter : si true, on ajoute à la suite au lieu de remplacer
   const container = document.querySelector(containerSelector);
 
   if (!container) {
@@ -13,20 +24,25 @@ function displayPensionnaireCards(pensionnaires, containerSelector) {
     return;
   }
 
-  if (pensionnaires.length === 0) {
+  if (pensionnaires.length === 0 && !ajouter) {
     container.innerHTML = "<p>Aucune fiche disponible pour le moment.</p>";
     return;
   }
 
-  // On vide le conteneur avant d'ajouter les cartes
-  container.innerHTML = "";
+  // On vide le conteneur seulement si on ne fait pas un ajout
+  if (!ajouter) {
+    container.innerHTML = "";
+  }
 
   // On boucle au travers de chacun des objets reçus de l'API
-  pensionnaires.forEach(function (animal, index) {
+  pensionnaires.forEach(function (animal) {
+
+    // La numérotation continue d'un lot à l'autre : la 9e carte reste la 9e
+    const numero = container.querySelectorAll(".carte-animal").length + 1;
 
     const carte = document.createElement("article");
     carte.classList.add("carte-animal");
-    carte.classList.add(`carte-animal-${index + 1}`);
+    carte.classList.add(`carte-animal-${numero}`);
 
     // On raccourcit la description pour garder des cartes de taille égale
     let resume = animal.description;
@@ -54,6 +70,28 @@ function displayPensionnaireCards(pensionnaires, containerSelector) {
 
 }
 
+
+// Affiche le lot suivant de fiches et met à jour le compteur et le bouton
+function afficherLotSuivant(ajouter) {
+  const lot = toutesLesFiches.slice(nombreAffiche, nombreAffiche + CARTES_PAR_LOT);
+
+  displayPensionnaireCards(lot, ".grille-galerie", ajouter);
+  nombreAffiche = nombreAffiche + lot.length;
+
+  const compteur = document.querySelector("#compteurPensionnaires");
+  if (compteur) {
+    compteur.textContent =
+      `${nombreAffiche} races affichées sur ${toutesLesFiches.length}`;
+  }
+
+  // Le bouton disparaît quand tout est affiché
+  const bouton = document.querySelector("#boutonPlus");
+  if (bouton) {
+    bouton.hidden = nombreAffiche >= toutesLesFiches.length;
+  }
+}
+
+
 async function loadPensionnaires() {
   const container = document.querySelector(".grille-galerie");
   if (!container) {
@@ -76,8 +114,18 @@ async function loadPensionnaires() {
       return;
     }
 
-    // On affiche les fiches dans le conteneur
-    displayPensionnaireCards(donnees, ".grille-galerie");
+    // On garde toutes les fiches en mémoire, puis on affiche le premier lot
+    toutesLesFiches = donnees;
+    nombreAffiche = 0;
+    afficherLotSuivant(false);
+
+    // Chaque clic ajoute le lot suivant à la suite des cartes déjà là
+    const bouton = document.querySelector("#boutonPlus");
+    if (bouton) {
+      bouton.addEventListener("click", function () {
+        afficherLotSuivant(true);
+      });
+    }
 
   } catch (error) {
     console.error("Erreur lors du chargement des pensionnaires :", error);
