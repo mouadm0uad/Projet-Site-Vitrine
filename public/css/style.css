@@ -488,6 +488,83 @@ textarea:focus-visible {
 
 
 /* ---------------------------------------------------------
+   5c. TEMOIGNAGES DES ADOPTANTS
+   --------------------------------------------------------- */
+.grille-temoignages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+/* Flex en colonne : la citation s'étire pour que les blocs
+   « auteur » restent alignés d'une carte à l'autre. */
+.carte-temoignage {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sable-fonce);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 24px;
+}
+
+.carte-temoignage__note {
+  margin: 0 0 12px 0;
+  color: var(--ocre);
+  font-size: 1.15rem;
+  letter-spacing: 3px;
+}
+
+.carte-temoignage__citation {
+  flex-grow: 1;
+  position: relative;
+  margin: 0 0 20px 0;
+  padding-left: 28px;
+}
+
+/* Le guillemet ouvrant est décoratif : il n'est pas dans le HTML */
+.carte-temoignage__citation::before {
+  content: "«";
+  position: absolute;
+  left: 0;
+  top: -8px;
+  font-family: var(--police-titre);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--ocre);
+}
+
+.carte-temoignage__auteur {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 2px solid var(--sauge);
+  padding-top: 14px;
+}
+
+/* Pastille d'initiales, à la place d'une photo d'adoptant */
+.carte-temoignage__initiales {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 3px solid var(--encre);
+  border-radius: 50%;
+  background-color: var(--ocre);
+  font-family: var(--police-titre);
+  font-weight: bold;
+}
+
+.carte-temoignage__detail {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--foret-clair);
+}
+
+
+/* ---------------------------------------------------------
    6. PAGE ADOPTION
    --------------------------------------------------------- */
 .grille-cours {
@@ -847,6 +924,7 @@ textarea:focus-visible {
   .grille-infos,
   .grille-equipe,
   .grille-galerie,
+  .grille-temoignages,
   .deux-colonnes,
   .bloc-contact,
   .pied-page__contenu {
