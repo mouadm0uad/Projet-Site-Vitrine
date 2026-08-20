@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="320" height="220"
+     role="img" aria-label="Illustration d'un chat assis, photo à venir">
+
+  <!-- Fond identique a la variable CSS sable-fonce, pour un raccord invisible -->
+  <rect x="0" y="0" width="320" height="220" fill="#EAE1D0"/>
+
+  <!-- Queue : trait epais fonce, puis trait plus fin par-dessus pour l'effet contour -->
+  <path d="M196 176 C232 180, 246 152, 232 130"
+        fill="none" stroke="#12291C" stroke-width="22" stroke-linecap="round"/>
+  <path d="M196 176 C232 180, 246 152, 232 130"
+        fill="none" stroke="#8FA8A0" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Corps -->
+  <path d="M122 184 C122 142, 138 122, 160 122 C182 122, 198 142, 198 184 Z"
+        fill="#8FA8A0" stroke="#12291C" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Oreilles : dessinees avant la tete pour que leur base disparaisse dessous -->
+  <path d="M130 68 L122 26 L158 50 Z"
+        fill="#8FA8A0" stroke="#12291C" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M190 68 L198 26 L162 50 Z"
+        fill="#8FA8A0" stroke="#12291C" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Tete -->
+  <circle cx="160" cy="92" r="42" fill="#8FA8A0" stroke="#12291C" stroke-width="4"/>
+
+  <!-- Interieur des oreilles -->
+  <path d="M128 46 L124 32 L146 44 Z" fill="#E8B04B"/>
+  <path d="M192 46 L196 32 L174 44 Z" fill="#E8B04B"/>
+
+  <!-- Yeux fermes -->
+  <path d="M138 88 Q148 98 158 88"
+        fill="none" stroke="#12291C" stroke-width="5" stroke-linecap="round"/>
+  <path d="M162 88 Q172 98 182 88"
+        fill="none" stroke="#12291C" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Museau -->
+  <path d="M152 104 L168 104 L160 113 Z"
+        fill="#D9705F" stroke="#12291C" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M160 113 Q152 122 145 115"
+        fill="none" stroke="#12291C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M160 113 Q168 122 175 115"
+        fill="none" stroke="#12291C" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Moustaches -->
+  <g stroke="#12291C" stroke-width="3.5" stroke-linecap="round">
+    <path d="M132 104 L104 98"/>
+    <path d="M132 111 L102 111"/>
+    <path d="M133 118 L106 126"/>
+    <path d="M188 104 L216 98"/>
+    <path d="M188 111 L218 111"/>
+    <path d="M187 118 L214 126"/>
+  </g>
+
+  <!-- Pattes avant -->
+  <ellipse cx="142" cy="176" rx="17" ry="8" fill="#F6F1E7" stroke="#12291C" stroke-width="4"/>
+  <ellipse cx="180" cy="176" rx="17" ry="8" fill="#F6F1E7" stroke="#12291C" stroke-width="4"/>
+
+  <!-- Sol -->
+  <path d="M74 186 L246 186" stroke="#12291C" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="160" y="210" text-anchor="middle"
+        font-family="Trebuchet MS, Segoe UI, Tahoma, sans-serif"
+        font-size="19" font-weight="bold" fill="#1F3D2B">Photo à venir</text>
+
+</svg>

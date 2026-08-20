@@ -1,11 +1,27 @@
 // Nombre de fiches ajoutées à chaque clic sur « Afficher plus de races »
 const CARTES_PAR_LOT = 8;
 
+// Image affichée quand TheCatAPI ne fournit pas de photo,
+// ou quand l'URL fournie ne se charge pas (lien mort, hors ligne…)
+const IMAGE_REMPLACEMENT = "images/chat-placeholder.svg";
+
 // Toutes les fiches reçues de l'API, gardées en mémoire une seule fois
 let toutesLesFiches = [];
 
 // Combien de fiches sont actuellement visibles dans la galerie
 let nombreAffiche = 0;
+
+
+// Appelée par l'attribut onerror des images : une photo de l'API n'a pas pu
+// être téléchargée, on la remplace par notre dessin de chat.
+function utiliserImageRemplacement(image) {
+  // On coupe onerror AVANT de changer la source : si le SVG lui-même était
+  // introuvable, la fonction se rappellerait sans fin.
+  image.onerror = null;
+  image.src = IMAGE_REMPLACEMENT;
+  image.alt = "Photo à venir pour cette race";
+  image.classList.add("carte-animal__photo--remplacement");
+}
 
 
 function displayPensionnaireCards(pensionnaires, containerSelector, ajouter) {
@@ -50,10 +66,16 @@ function displayPensionnaireCards(pensionnaires, containerSelector, ajouter) {
       resume = resume.slice(0, 120).trim() + "…";
     }
 
-    // Si l'API ne fournit pas de photo, on affiche un bloc de remplacement
+    // Deux cas de figure sont couverts :
+    // 1. l'API ne donne aucune photo  -> on met tout de suite le dessin de chat ;
+    // 2. l'API donne une URL cassée   -> l'attribut onerror bascule sur le dessin.
     const visuel = animal.image
-      ? `<img src="${animal.image}" alt="Un chat de race ${animal.nom}" loading="lazy">`
-      : `<div class="carte-animal__sans-photo">Photo à venir</div>`;
+      ? `<img class="carte-animal__photo" src="${animal.image}"
+              alt="Un chat de race ${animal.nom}" loading="lazy"
+              onerror="utiliserImageRemplacement(this)">`
+      : `<img class="carte-animal__photo carte-animal__photo--remplacement"
+              src="${IMAGE_REMPLACEMENT}"
+              alt="Photo à venir pour la race ${animal.nom}" loading="lazy">`;
 
     carte.innerHTML = `
       ${visuel}

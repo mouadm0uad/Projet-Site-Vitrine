@@ -375,7 +375,8 @@ textarea:focus-visible {
   flex-direction: column;
 }
 
-.carte-animal img {
+.carte-animal img,
+.carte-animal__photo {
   display: block;
   width: 100%;
   height: 170px;
@@ -383,17 +384,13 @@ textarea:focus-visible {
   border-bottom: 3px solid var(--encre);
 }
 
-/* Bloc affiché quand l'API ne fournit pas de photo */
-.carte-animal__sans-photo {
-  height: 170px;
-  background-color: var(--sauge);
-  border-bottom: 3px solid var(--encre);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--police-titre);
-  font-weight: bold;
-  color: var(--encre);
+/* Image de remplacement (images/chat-placeholder.svg) affichée quand l'API
+   ne fournit pas de photo ou quand l'URL reçue ne se charge pas.
+   « contain » au lieu de « cover » : le dessin est montré en entier, jamais
+   rogné. Le fond reprend la couleur du SVG pour que le raccord soit invisible. */
+.carte-animal__photo--remplacement {
+  object-fit: contain;
+  background-color: var(--sable-fonce);
 }
 
 .carte-animal__contenu {
@@ -582,7 +579,8 @@ textarea:focus-visible {
 }
 
 .section--claire .carte-cours,
-.section--claire .carte {
+.section--claire .carte,
+.section--claire .critere {
   background-color: var(--sable);
 }
 
@@ -660,6 +658,57 @@ textarea:focus-visible {
   text-align: left;
 }
 
+
+/* ---------------------------------------------------------
+   6b. CRITERES D'ADOPTION D'UN CHAT
+   --------------------------------------------------------- */
+.liste-criteres {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.critere {
+  background-color: var(--sable-fonce);
+  border: 3px solid var(--encre);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 22px 20px;
+}
+
+/* Pastille ronde avec le crochet, posée avant le titre du critère */
+.critere__marque {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--encre);
+  border-radius: 50%;
+  background-color: var(--ocre);
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.critere h3 {
+  margin-bottom: 6px;
+}
+
+.critere p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.note-criteres {
+  max-width: 700px;
+  margin: 34px auto 0 auto;
+  text-align: center;
+  font-style: italic;
+  color: var(--foret-clair);
+}
 
 /* ---------------------------------------------------------
    7. PAGE ÉQUIPE
@@ -925,6 +974,7 @@ textarea:focus-visible {
   .grille-equipe,
   .grille-galerie,
   .grille-temoignages,
+  .liste-criteres,
   .deux-colonnes,
   .bloc-contact,
   .pied-page__contenu {
